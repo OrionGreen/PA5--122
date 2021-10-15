@@ -17,7 +17,7 @@ class Queue
 {
 
 public: // Member functions
-    Queue(QueueNode* newHead, QueueNode* newTail);
+    Queue(QueueNode* newHead = nullptr, QueueNode* newTail = nullptr);
 
     Queue& operator= (const Queue& rhs);
 
