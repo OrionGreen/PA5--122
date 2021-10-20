@@ -17,6 +17,7 @@ QueueNode& QueueNode::operator= (const QueueNode& rhs) {
 }
 
 QueueNode::~QueueNode() {
+	delete this->getpData();
 }
 
 //setters
@@ -33,4 +34,9 @@ Data* QueueNode::getpData(void) const {
 }
 QueueNode* QueueNode::getpNext(void) const {
 	return this->mpNext;
+}
+
+std::ostream& operator<< (std::ostream& lhs, const QueueNode& rhs) {
+	lhs << "Customer: " << rhs.getpData()->getCustumerNumber() << endl << "Checked out in: " << rhs.getpData()->getTotalTime() << "Minutes" << endl;
+	return lhs;
 }

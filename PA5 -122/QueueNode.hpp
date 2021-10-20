@@ -35,3 +35,4 @@ private:
     QueueNode* mpNext;
 
 };
+std::ostream& operator<< (std::ostream& lhs, const QueueNode& rhs);

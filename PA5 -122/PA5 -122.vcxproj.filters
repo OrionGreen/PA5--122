@@ -24,12 +24,12 @@
     <ClInclude Include="Queue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Simulation.hpp">
+    <ClInclude Include="TestSims.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Simulation.cpp">
+    <ClCompile Include="TestSims.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Queue.cpp">

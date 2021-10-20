@@ -38,3 +38,61 @@ void Queue::setmpHead(QueueNode* const newmpHead) {
 void Queue::setmpTail(QueueNode* const newmpTail) {
 	this->mpTail = newmpTail;
 }
+
+bool Queue::enqueue(Data* const newData) {
+
+	QueueNode* pMem = new QueueNode(newData); //replaces makeNode()
+	bool success = false;
+
+	if (pMem != nullptr) {
+
+		//allocated space for a Node 
+		success = true;
+
+		//check if empty
+		if (this->isEmpty()) {
+			//it's empty
+			this->mpHead = this->mpTail = pMem;
+		}
+		else
+		{
+			//it's not empty
+			this->mpTail->setpNext(pMem);
+			this->mpTail = pMem;
+		}
+
+	}
+	return success;
+}
+
+bool Queue::isEmpty() {
+
+	if (this->mpHead == nullptr) {
+		return true;
+	}
+	else
+		return false;
+}
+
+void Queue::dequeue() {
+	QueueNode* pMem = this->mpHead;
+	string data;
+
+	this->mpHead = pMem->getpNext();
+	delete pMem;
+}
+
+void Queue::printQueue() {
+	printQueueRecursive(this->mpHead);
+}
+
+void Queue::printQueueRecursive(QueueNode* pCur) {
+
+	if (pCur == nullptr) {
+		return;
+	}
+	else
+		data = pCur->getpData();
+	cout << pCur << endl;
+	printQueueRecursive(pCur->getpNext());
+}

@@ -31,6 +31,16 @@ public: // Member functions
     void setmpHead(QueueNode* const newmpHead);
     void setmpTail(QueueNode* const newmpTail);
 
+	bool enqueue(Data* const newData);
+
+	bool isEmpty();
+
+	void dequeue();
+
+	void printQueue();
+
+    void printQueueRecursive(QueueNode* pCur);
+
 private:
 
     QueueNode* mpHead;

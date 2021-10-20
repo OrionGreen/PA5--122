@@ -142,13 +142,13 @@
     <ClInclude Include="Data.hpp" />
     <ClInclude Include="Queue.hpp" />
     <ClInclude Include="QueueNode.hpp" />
-    <ClInclude Include="Simulation.hpp" />
+    <ClInclude Include="TestSims.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="QueueNode.cpp" />
-    <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="TestSims.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
