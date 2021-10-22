@@ -1,5 +1,12 @@
 #include "TestSims.hpp"
 
+TestSim::TestSim() {
+
+}
+
+TestSim::~TestSim() {
+
+}
 
 bool TestSim::TestEnqueueEmpty() {
 	Data* data = new Data(1, 9, 9);
@@ -50,7 +57,21 @@ bool TestSim::TestDequeueone() {
 	return true;
 }
 bool TestSim::TestDequeueTwo() {
+	Data* data = new Data(1, 9, 9);
+	Queue Q1;
+	bool works = false;
+	Q1.enqueue(data);
+	data = new Data(2, 11, 11);
+	Q1.enqueue(data);
 
+	Q1.dequeue();
+	if (Q1.getmpHead()->getpData()->getCustumerNumber() == 2) {
+		works = true;
+	}
+	if (works) {
+		cout << "Dequeuing the front Works!" << endl;
+	}
+	return true;
 }
 
 
@@ -127,18 +148,18 @@ void TestSim::TestSimTime(int minutes) {
 		bool dequeued = false;
 		dequeued = Normal.checkQueue();
 		if (dequeued) {
-			cout << timeElapsedNorm << "minutes from the normal checkout line" << endl;
+			cout << timeElapsedNorm << " minutes from the normal checkout line" << endl;
 			timeElapsedNorm = 0;
 		}
 
 		dequeued = false;
 		dequeued = Express.checkQueue();
 		if (dequeued) {
-			cout << timeElapsedNorm << "minutes from the normal checkout line" << endl;
+			cout << timeElapsedNorm << " minutes from the express checkout line" << endl;
 			timeElapsedEx = 0;
 		}
 
-		if(timeMaster != 0 && timeMaster % 10 = 0) {
+		if(timeMaster != 0 && timeMaster % 10 == 0) {
 			cout << "Lines at time: " << timeMaster << endl << endl;
 			cout << "Express Line" << endl;
 			Express.printQueue();
@@ -155,4 +176,13 @@ void TestSim::TestSimTime(int minutes) {
 //runs simulation for 24 hours
 void TestSim::TestSimulation() {
 	TestSimTime(1440);
+}
+
+void TestSim::runApp() {
+	cout << endl << "Please Enter an amount of minutes to run the simulation:" << endl;
+	int minutes = 0;
+	cin >> minutes;
+	system("cls");
+
+	TestSimTime(minutes);
 }
