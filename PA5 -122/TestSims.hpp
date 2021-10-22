@@ -27,12 +27,12 @@ public: // Member functions
    bool TestDequeueone();
    bool TestDequeueTwo();
 
+   void TestSimTime(int minutes);
    void TestSimulation();
    void runApp();
 
 private:
     Queue express;
     Queue normal;
-    void TestSimTime(int minutes);
 
 };
