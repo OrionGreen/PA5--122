@@ -9,6 +9,7 @@ Queue::Queue(QueueNode* newHead, QueueNode* newTail) {
 Queue& Queue::operator= (const Queue& rhs) {
 	this->mpHead = rhs.mpHead;
 	this->mpTail = rhs.mpTail;
+	return *this;
 }
 
 Queue::~Queue() {
@@ -65,6 +66,24 @@ bool Queue::enqueue(Data* const newData) {
 	return success;
 }
 
+bool Queue::checkQueue() {
+	bool dequeued = false;
+	if (this->getmpHead() != nullptr) {
+		
+		QueueNode* pMem = this->getmpHead();
+		int num = this->getmpHead()->getpData()->getServiceTime();
+		if (pMem->getpData()->getServiceTime() != 0) {
+			this->getmpHead()->getpData()->setServiceTime(num - 1);
+		}
+		else {
+			this->dequeue();
+			dequeued = true;
+		}
+
+	}
+	return dequeued;
+}
+
 bool Queue::isEmpty() {
 
 	if (this->mpHead == nullptr) {
@@ -78,6 +97,8 @@ void Queue::dequeue() {
 	QueueNode* pMem = this->mpHead;
 	string data;
 
+	cout << "Customer: " << pMem->getpData()->getCustumerNumber() << "has finished checking out in ";
+
 	this->mpHead = pMem->getpNext();
 	delete pMem;
 }
@@ -89,10 +110,10 @@ void Queue::printQueue() {
 void Queue::printQueueRecursive(QueueNode* pCur) {
 
 	if (pCur == nullptr) {
+		cout << endl;
 		return;
 	}
 	else
-		data = pCur->getpData();
-	cout << pCur << endl;
+	cout << "Customer: " << pCur->getpData()->getCustumerNumber() << " Service Time: " << pCur->getpData()->getServiceTime() << endl;
 	printQueueRecursive(pCur->getpNext());
 }

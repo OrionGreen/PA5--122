@@ -33,6 +33,8 @@ public: // Member functions
 
 	bool enqueue(Data* const newData);
 
+    bool checkQueue();
+
 	bool isEmpty();
 
 	void dequeue();

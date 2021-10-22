@@ -23,7 +23,7 @@ public: // Member functions
     ~TestSim();
 
    bool TestEnqueueEmpty();
-   bool TestEnququqOne();
+   bool TestEnqueueOne();
    bool TestDequeueone();
    bool TestDequeueTwo();
    void TestSimTime(int minutes);
