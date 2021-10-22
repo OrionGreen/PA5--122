@@ -12,6 +12,7 @@ Queue& Queue::operator= (const Queue& rhs) {
 	return *this;
 }
 
+
 Queue::~Queue() {
 	QueueNode* pMem = mpHead;
 	QueueNode* pPrev = nullptr;
@@ -66,6 +67,7 @@ bool Queue::enqueue(Data* const newData) {
 	return success;
 }
 
+//checks if the time for the front of the line is done, if its not then it increments down 1 min if they are done we dequeue
 bool Queue::checkQueue() {
 	bool dequeued = false;
 	if (this->getmpHead() != nullptr) {
@@ -93,6 +95,7 @@ bool Queue::isEmpty() {
 		return false;
 }
 
+//takes out the head and prints a statement
 void Queue::dequeue() {
 	QueueNode* pMem = this->mpHead;
 	string data;
@@ -104,6 +107,7 @@ void Queue::dequeue() {
 	delete pMem;
 }
 
+//public and private helper to print the queue
 void Queue::printQueue() {
 	printQueueRecursive(this->mpHead);
 }
@@ -115,6 +119,6 @@ void Queue::printQueueRecursive(QueueNode* pCur) {
 		return;
 	}
 	else
-	cout << "Customer: " << pCur->getpData()->getCustumerNumber() << "   |   Service Time: " << pCur->getpData()->getServiceTime() << "   |   Total Time Waiting in Line: "<< pCur->getpData()->getTotalTime() << endl;
+	cout << *(pCur);
 	printQueueRecursive(pCur->getpNext());
 }

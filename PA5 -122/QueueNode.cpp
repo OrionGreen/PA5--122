@@ -37,6 +37,6 @@ QueueNode* QueueNode::getpNext(void) const {
 }
 
 std::ostream& operator<< (std::ostream& lhs, const QueueNode& rhs) {
-	lhs << "Customer: " << rhs.getpData()->getCustumerNumber() << endl << "Checked out in: " << rhs.getpData()->getTotalTime() << "Minutes" << endl;
+	lhs << "Customer: " << rhs.getpData()->getCustumerNumber() << "   |   Service Time: " << rhs.getpData()->getServiceTime() << "   |   Total Time Waiting in Line: " << rhs.getpData()->getTotalTime() << endl;
 	return lhs;
 }

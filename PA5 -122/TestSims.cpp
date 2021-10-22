@@ -1,5 +1,6 @@
 #include "TestSims.hpp"
 
+//no constructor or destructor
 TestSim::TestSim() {
 
 }
@@ -8,6 +9,7 @@ TestSim::~TestSim() {
 
 }
 
+//testing for the queueing and dequeueing
 bool TestSim::TestEnqueueEmpty() {
 	Data* data = new Data(1, 9, 9);
 	Queue Q1;
@@ -84,6 +86,7 @@ bool TestSim::TestDequeueTwo() {
 //For every 10 minutes, print out the entire queue for each line
 //Repeat steps 2 through 4 for n minutes of simulation
 
+//actual sim code 
 void TestSim::TestSimTime(int minutes) {
 	srand(time(NULL));
 
@@ -178,6 +181,7 @@ void TestSim::TestSimulation() {
 	TestSimTime(1440);
 }
 
+//allows the user to input any amount of minues to run sin for.
 void TestSim::runApp() {
 	cout << endl << "Please Enter an amount of minutes to run the simulation:" << endl;
 	int minutes = 0;
