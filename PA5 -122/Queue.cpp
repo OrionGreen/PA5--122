@@ -97,7 +97,8 @@ void Queue::dequeue() {
 	QueueNode* pMem = this->mpHead;
 	string data;
 
-	cout << "Customer: " << pMem->getpData()->getCustumerNumber() << "has finished checking out in ";
+	cout << "Customer: " << pMem->getpData()->getCustumerNumber() << " has finished checking out their time waiting in total was: " 
+		<< pMem->getpData()->getTotalTime() << " minutes. They checked out in ";
 
 	this->mpHead = pMem->getpNext();
 	delete pMem;
@@ -114,6 +115,6 @@ void Queue::printQueueRecursive(QueueNode* pCur) {
 		return;
 	}
 	else
-	cout << "Customer: " << pCur->getpData()->getCustumerNumber() << " Service Time: " << pCur->getpData()->getServiceTime() << endl;
+	cout << "Customer: " << pCur->getpData()->getCustumerNumber() << "   |   Service Time: " << pCur->getpData()->getServiceTime() << "   |   Total Time Waiting in Line: "<< pCur->getpData()->getTotalTime() << endl;
 	printQueueRecursive(pCur->getpNext());
 }

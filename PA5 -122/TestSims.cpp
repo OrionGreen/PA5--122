@@ -120,7 +120,7 @@ void TestSim::TestSimTime(int minutes) {
 			Data* data = new Data(custNum1, serviceTimeEx ,totalTimeWaiting);
 
 			Express.enqueue(data);
-			cout << "Customer Number: " << custNum1 << " Has arrived into the Express Line." << endl;
+			cout << "Customer Number: " << custNum1 << " has arrived into the Express Line." << endl;
 			NewCustArEx += (rand() % 5) + 1;
 		}
 
@@ -141,21 +141,21 @@ void TestSim::TestSimTime(int minutes) {
 			Data* data = new Data(custNum2, serviceTimeNorm ,totalTimeWaiting);
 
 			Normal.enqueue(data);
-			cout << "Customer Number: " << custNum2 << " Has arrived into the Normal Line." << endl;
+			cout << "Customer Number: " << custNum2 << " has arrived into the Normal Line." << endl;
 			NewCustArNorm += (rand() % 6) + 3;
 		}
 
 		bool dequeued = false;
 		dequeued = Normal.checkQueue();
 		if (dequeued) {
-			cout << timeElapsedNorm << " minutes from the normal checkout line" << endl;
+			cout << timeElapsedNorm - 1 << " minutes from the normal checkout line" << endl;
 			timeElapsedNorm = 0;
 		}
 
 		dequeued = false;
 		dequeued = Express.checkQueue();
 		if (dequeued) {
-			cout << timeElapsedNorm << " minutes from the express checkout line" << endl;
+			cout << timeElapsedEx - 1 << " minutes from the express checkout line" << endl;
 			timeElapsedEx = 0;
 		}
 
